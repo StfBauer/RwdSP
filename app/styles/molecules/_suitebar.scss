@@ -1,0 +1,63 @@
+/** Suite Bar SCSS **/
+/** Media query for screens smaller than 480px **/
+@mixin sbTextToIcon {
+    .o365cs-nav-brandingText {
+        display: none;
+    }
+    // Inject Logo before the original text link
+    &::before {
+        // Use Office 365 icon fonts
+        font-family: 'office365icons', 'o365Icons';
+        // add defined content here in our case the icons
+        @content;
+        /** Adjust font-size to match the other icons **/
+        
+        font-size: 22px;
+        line-height: 50px;
+    }
+    // Finally avoid hover underline because of the link
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /** Outer element of the nav bar **/
+    
+    #O365_MainLink_Logo {
+        // Add Code to change the text to icon
+        @include sbTextToIcon {
+            // Add the correct Office 365 icon
+            content: '\E055';
+        }
+    }
+    .o365cs-nav-appTitle.o365cs-topnavText.o365button {
+        @include sbTextToIcon {
+            // Add the correct Sites icon
+            content: '\E022';
+        }
+    }
+    .o365cs-nav-header16 {
+        .o365cs-nav-notificationTrayContainer {
+            // remove fixed width of notification tray
+            min-width: 0 !important;
+            width: auto !important;
+        }
+    }
+    
+    .o365cs-nav-o365Branding {
+        margin-right: 0px;
+        padding-right: 0px;
+    }
+
+}
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+    // Hides header region
+    .o365cs-nav-header16 .o365cs-nav-headerRegion {
+        display: none !important;
+    }
+    // Fix padding
+    .o365cs-nav-header16 .o365cs-nav-o365Branding {
+        padding: 0px 15px !important;
+    }
+}

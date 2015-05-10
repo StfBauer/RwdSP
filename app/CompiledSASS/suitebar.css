@@ -1,0 +1,74 @@
+/** Suite Bar SCSS                                         **/
+/** Author: Stefan Bauer                                   **/
+/** Web: http://www.n8d.at/                                **/
+/** Additional information can be found on the             **/
+/**                                                        **/
+
+/* Media query for screens smaller than 600px */
+@media only screen and (max-width: 600px) {
+    
+    /* Hide original Office 365 logo */
+    #O365_MainLink_Logo .o365cs-nav-brandingText {
+        display: none;
+    }
+    #O365_MainLink_Logo::before {
+        /* Use Office 365 icon fonts */
+        
+        font-family: 'office365icons', 'o365Icons';
+        /* Insert Office Logo */
+        
+        content: '\E055';
+        /* Adjust font-size to match the other icons */
+        
+        font-size: 22px;
+        line-height: 50px;
+    }
+
+    /* fix hover link on new inserted icon */
+    #O365_MainLink_Logo:hover {
+        text-decoration: none;
+    }
+    
+    /* Hide original sites label logo */
+    .o365cs-nav-appTitle.o365cs-topnavText.o365button .o365cs-nav-brandingText {
+        display: none;
+    }
+    .o365cs-nav-appTitle.o365cs-topnavText.o365button::before {
+        /* Use Office 365 icon fonts */
+        
+        font-family: 'office365icons', 'o365Icons';
+        /* insert sites logo */
+        
+        content: '\E022';
+        /* Adjust font-size to match the other icons */
+        
+        font-size: 22px;
+        line-height: 50px;
+    }
+    
+    /* fix hover link on new inserted icon */
+    .o365cs-nav-appTitle.o365cs-topnavText.o365button:hover {
+        text-decoration: none;
+    }
+
+    /* Fix center of suite bar */
+    .o365cs-nav-header16 .o365cs-nav-notificationTrayContainer {
+        min-width: 0 !important;
+        width: auto !important;
+    }
+	
+    .o365cs-nav-o365Branding {
+        margin-right: 0px;
+        padding-right: 0px;
+    }
+}
+
+/* Media query for portrait mode and smart phone */
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+    .o365cs-nav-header16 .o365cs-nav-headerRegion {
+        display: none !important;
+    }
+    .o365cs-nav-header16 .o365cs-nav-o365Branding {
+        padding: 0px 15px !important;
+    }
+}
